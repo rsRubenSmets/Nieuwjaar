@@ -88,13 +88,14 @@ class Spec_game():
         assert set(outcome_dict_bps.keys()) == set(self.list_participants), f"Outcome dict BPs list of keys {outcome_dict_bps.keys()} does not correspond to list of participants {self.list_participants}"
 
         outcome_dict_points_recalc = self.recaculaculate_points(outcome_dict_points)
+        outcome_dict_bps_recalc = self.normalize_bps(outcome_dict_bps)
 
         self.outcome_points_recalc = outcome_dict_points_recalc
         self.outcome_bps_recalc = outcome_dict_bps
 
         for player in self.list_participants:
             player.add_points(outcome_dict_points_recalc[player],f"round {self.round}")
-            player.add_bps(outcome_dict_bps[player],f"round {self.round}")
+            player.add_bps(outcome_dict_bps_recalc[player],f"round {self.round}")
 
     def recaculaculate_points(self,dict):
 

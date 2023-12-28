@@ -29,6 +29,12 @@ class Player():
         else:
             self.points_dict[key] = points
 
+    def remove_points(self,key):
+        del self.points_dict[key]
+
+    def remove_bps(self,key):
+        del self.bps_dict[key]
+
     def add_bps(self,points,key):
         if key in self.bps_dict:
             raise ValueError("key already taken, not allowed to overwrite")
